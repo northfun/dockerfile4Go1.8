@@ -1,0 +1,16 @@
+# Version: 0.0.1                                           
+FROM ubuntu:16.04                                          
+MAINTAINER North Fun "fanbeishuang@126.com"                
+                                                           
+RUN apt-get update && \                                    
+        apt-get install -y software-properties-common && \ 
+        apt-add-repository ppa:ansible/ansible && \        
+        apt-get update && \                                
+        apt-get install -y ansible && \                    
+        apt-get clean && \                                 
+        apt-get autoclean && \                             
+        rm -rf /root/package /tmp/* /var/tmp/*             
+                                                           
+WORKDIR /root                                              
+                                                           
+CMD ["bash"]                                               
